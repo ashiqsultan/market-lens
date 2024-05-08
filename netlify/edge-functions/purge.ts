@@ -9,5 +9,5 @@ export default async () => {
 };
 
 export const config: Config = {
-  path: '/purge',
+  path: '/manual-purge',
 };
