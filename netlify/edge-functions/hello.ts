@@ -9,9 +9,9 @@ export default async (req: Request, context: Context) => {
 
   const headers = {
     'Content-Type': 'application/json',
-    'Cache-Control': 'public, max-age=0, must-revalidate', // Tell browsers to always revalidate
+    'Cache-Control': 'public, max-age=0, must-revalidate',
     'Netlify-CDN-Cache-Control':
-      'public, max-age=10, stale-while-revalidate=120', // Tell Edge to cache asset for 120sec
+      'public, max-age=120, stale-while-revalidate=300',
   };
 
   console.log(resBody);
