@@ -23,5 +23,5 @@ export default async (req: Request, context: Context) => {
 
 export const config: Config = {
   cache: 'manual',
-  path: '/',
+  path: '/hello',
 };
