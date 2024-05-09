@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Box } from '@mui/material';
 import Home from './page/Home';
+import Stock from './page/Stock';
 
 const theme = createTheme({
   palette: {
@@ -33,6 +34,7 @@ function App() {
           <Box sx={appStyle}>
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/stock/:symbol' element={<Stock />} />
             </Routes>
           </Box>
         </Router>

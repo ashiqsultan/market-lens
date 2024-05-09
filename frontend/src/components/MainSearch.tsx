@@ -13,7 +13,7 @@ export default function MainSearch() {
   const handleSearch = () => {
     const value = inputRef.current?.value.trim();
     if (value) {
-      navigate(`/symbol/${value}`);
+      navigate(`/stock/${value}`);
     }
   };
 
