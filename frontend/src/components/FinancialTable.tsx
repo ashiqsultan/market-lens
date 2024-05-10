@@ -63,7 +63,8 @@ const FinancialTable = ({ financialData }) => {
           {Object.keys(financialKeys).map((key, index) => (
             <TableRow key={index}>
               <TableCell>{key}</TableCell>
-              {financialData.map((_data, dataIndex) => (
+              {/* @ts-ignore */}
+              {financialData.map((data, dataIndex) => (
                 <TableCell key={dataIndex}>
                   {roundToMillions(
                     eval(`data.financials.${financialKeys[key]}`)
