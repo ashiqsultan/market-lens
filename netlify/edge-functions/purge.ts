@@ -1,14 +1,20 @@
 import { purgeCache, Config } from '@netlify/functions';
 
-export default async (event, context) => {
-  console.log('Purging everything');
+export default async (req: Request, context) => {
+  const url = new URL(req.url);
+  const cacheTag = url.searchParams.get('tag');
+  console.log(cacheTag);
+  if (!cacheTag) {
+    return;
+  }
+  console.log('Purging by cache');
   const token = Netlify.env.get('purge_api_token');
-  //   const  = context.clientContext.custom.;
   await purgeCache({
     token,
+    tags: [cacheTag],
   });
 
-  return new Response('Purged!', { status: 202 });
+  return new Response(`Purged tag ${cacheTag}!`, { status: 202 });
 };
 
 export const config: Config = {
