@@ -3,7 +3,7 @@ import { AppRes } from './types.ts';
 
 const POLYGON_API_KEY = Netlify.env.get('POLYGON_API_KEY');
 
-async function getTickerPrice(symbol: string): Promise<AppRes> {
+async function getPrice(symbol: string): Promise<AppRes> {
   try {
     const today = new Date();
     const oneYearBefore = new Date(today);
@@ -26,4 +26,4 @@ async function getTickerPrice(symbol: string): Promise<AppRes> {
   }
 }
 
-export default getTickerPrice;
+export default getPrice;

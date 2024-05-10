@@ -1,10 +1,10 @@
 import type { Config, Context } from '@netlify/edge-functions';
-import getPrice from './utils/getPrice.ts';
+import getNews from './utils/getNews.ts';
 
 export default async (_req: Request, context: Context) => {
   const symbol = context.params.symbol || '';
   console.log({ symbol });
-  const polygonRes = await getPrice(symbol);
+  const polygonRes = await getNews(symbol);
 
   if (polygonRes?.status === 429) {
     const resBody = polygonRes.data;
@@ -41,5 +41,5 @@ export default async (_req: Request, context: Context) => {
 
 export const config: Config = {
   cache: 'manual',
-  path: '/ticker-price/:symbol',
+  path: '/ticker-news/:symbol',
 };
