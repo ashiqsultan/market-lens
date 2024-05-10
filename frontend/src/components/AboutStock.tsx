@@ -1,12 +1,4 @@
-import {
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
-  Paper,
-} from '@mui/material';
+import { Typography } from '@mui/material';
 
 const AboutStock = () => {
   const stock = {

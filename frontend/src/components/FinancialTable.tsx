@@ -38,8 +38,8 @@ const FinancialTable = ({ financialData }) => {
     //   'income_statement.research_and_development.value',
     // 'Cost of Revenue': 'income_statement.cost_of_revenue.value',
     'Operating Expenses': 'income_statement.operating_expenses.value',
-    // 'Net Cash Flow From Operating Activities':
-    //   'cash_flow_statement.net_cash_flow_from_operating_activities.value',
+    'Net Cash Flow':
+      'cash_flow_statement.net_cash_flow_from_operating_activities.value',
     // 'Net Cash Flow From Investing Activities':
     //   'cash_flow_statement.net_cash_flow_from_investing_activities.value',
     // 'Net Cash Flow From Financing Activities':
@@ -63,7 +63,7 @@ const FinancialTable = ({ financialData }) => {
           {Object.keys(financialKeys).map((key, index) => (
             <TableRow key={index}>
               <TableCell>{key}</TableCell>
-              {financialData.map((data, dataIndex) => (
+              {financialData.map((_data, dataIndex) => (
                 <TableCell key={dataIndex}>
                   {roundToMillions(
                     eval(`data.financials.${financialKeys[key]}`)

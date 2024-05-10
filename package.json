@@ -9,6 +9,8 @@
   "author": "ashiqsultan",
   "license": "ISC",
   "dependencies": {
-    "@netlify/functions": "^2.6.3"
+    "@netlify/functions": "^2.6.3",
+    "chart.js": "^4.4.2",
+    "react-chartjs-2": "^5.2.0"
   }
 }
