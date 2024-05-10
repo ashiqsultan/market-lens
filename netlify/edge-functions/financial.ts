@@ -40,7 +40,7 @@ export default async (req: Request, context: Context) => {
       'Cache-Control': 'public, max-age=0, must-revalidate',
       'Netlify-CDN-Cache-Control':
         'public, max-age=604800 , stale-while-revalidate=2592000',
-      // 'Netlify-Vary': 'query=symbol',
+      'Netlify-Vary': 'query=symbol',
     };
     return new Response(resBody, {
       headers,
