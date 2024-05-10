@@ -26,6 +26,7 @@ export default async (_req: Request, context: Context) => {
       'Cache-Control': 'public, max-age=0, must-revalidate',
       'Netlify-CDN-Cache-Control':
         'public, max-age=120, stale-while-revalidate=300',
+      'Cache-Tag': `${symbol}`,
     };
     return new Response(resBody, {
       headers,
@@ -41,5 +42,5 @@ export default async (_req: Request, context: Context) => {
 
 export const config: Config = {
   cache: 'manual',
-  path: '/ticker-news/:symbol',
+  path: '/api/news/:symbol',
 };
