@@ -7,6 +7,10 @@ import {
 import { Line } from 'react-chartjs-2';
 
 const options = {
+  interaction: {
+    intersect: false,
+    mode: 'index',
+  },
   scales: {
     x: {
       grid: {
