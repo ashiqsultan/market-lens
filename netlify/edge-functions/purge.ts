@@ -7,14 +7,14 @@ export default async (req: Request, context) => {
   if (!cacheTag) {
     return;
   }
-  console.log('Purging by cache');
+  console.log(`Purging cache with tag ${cacheTag}...`);
   const token = Netlify.env.get('purge_api_token');
   await purgeCache({
     token,
     tags: [cacheTag],
   });
 
-  return new Response(`Purged tag ${cacheTag}!`, { status: 202 });
+  return new Response(`Completed. Purged Cache with tag ${cacheTag}!`, { status: 202 });
 };
 
 export const config: Config = {

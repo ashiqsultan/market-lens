@@ -28,7 +28,7 @@ export default async (_req: Request, context: Context) => {
       'Cache-Control': 'public, max-age=0, must-revalidate',
       'Netlify-CDN-Cache-Control':
         'public, max-age=120, stale-while-revalidate=300',
-      'Cache-Tag': `${symbol}`,
+      'Cache-Tag': `${symbol}, ${symbol}-news`,
     };
     return new Response(resBody, {
       headers,
