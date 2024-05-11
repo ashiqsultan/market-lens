@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Financial from '../components/Financial';
 import { Typography, Box } from '@mui/material';
-import PriceChart from '../components/PriceChart';
+import PriceLayout from '../components/PriceLayout';
 import NewsList from '../components/NewsList';
 import MainSearch from '../components/MainSearch';
 import { useEffect } from 'react';
@@ -42,7 +42,11 @@ const StockDetails = () => {
       {/* <AboutStock /> */}
       <Box display={'flex'} columnGap={'2rem'}>
         <Box>
-          <PriceChart priceRes={priceRes} />
+          <PriceLayout
+            priceRes={priceRes}
+            financialRes={financialRes}
+            symbol={symbol}
+          />
           <Typography variant='h5'>Revenue vs Net Income</Typography>
           <Typography variant='caption'>(in millions USD)</Typography>
           <Financial financialRes={financialRes} />

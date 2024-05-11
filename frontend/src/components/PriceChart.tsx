@@ -5,7 +5,6 @@ import {
   TimeScale,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import AlertLimit from './AlertLimit';
 
 const options = {
   scales: {
@@ -26,9 +25,7 @@ const options = {
   },
 };
 const PriceChart = ({ priceRes }) => {
-  if (priceRes.status === 429) {
-    return <AlertLimit resourceName={'Price Data'} />;
-  } else if (Array.isArray(priceRes.results)) {
+  if (priceRes && Array.isArray(priceRes.results)) {
     const data = {
       labels: priceRes.results.map((i) => {
         return new Date(i.t).toISOString().slice(0, 10);
@@ -50,7 +47,7 @@ const PriceChart = ({ priceRes }) => {
         <Line data={data} options={options} />
       </div>
     );
-  }
+  } else return <></>;
 };
 
 export default PriceChart;
