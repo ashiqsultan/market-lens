@@ -39,8 +39,3 @@ export default async (_req: Request, context: Context) => {
     });
   }
 };
-
-export const config: Config = {
-  cache: 'manual',
-  path: '/api/news/:symbol',
-};
