@@ -16,6 +16,9 @@ const options = {
       grid: {
         display: false,
       },
+      ticks: {
+        display: false,
+      },
     },
     y: {
       title: {

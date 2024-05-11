@@ -6,7 +6,7 @@ import { Box, Chip } from '@mui/material';
 
 const PriceLayout = ({ priceRes, financialRes, symbol }) => {
   const [chartData, setChartData] = useState(priceRes.results);
-  const [selectedOption, setSelectedOption] = useState('Year');
+  const [selectedOption, setSelectedOption] = useState('Month');
 
   const handleYearlyData = () => {
     setChartData(priceRes.results);
@@ -26,7 +26,9 @@ const PriceLayout = ({ priceRes, financialRes, symbol }) => {
   };
 
   useEffect(() => {
-    handleYearlyData();
+    if (Array.isArray(priceRes.results)) {
+      handleMonthlyData();
+    }
   }, [priceRes.results]);
 
   if (priceRes.status === 429 || financialRes.status === 429) {
