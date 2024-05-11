@@ -1,5 +1,6 @@
 import { Typography, Box, Chip } from '@mui/material';
 import MainSearch from '../components/MainSearch';
+import sandp500list from '../components/sandp500list';
 
 const Home = () => {
   return (
@@ -18,27 +19,19 @@ const Home = () => {
         Or select any of the popular stocks from below
       </Typography>
 
-      {/* TODO: Create an array and map over the items */}
       <Box display={'flex'} columnGap={'1rem'}>
-        <Chip
-          label='AAPL'
-          component='a'
-          href='#basic-chip'
-          variant='outlined'
-          clickable
-          color='primary'
-        />
-        <Chip
-          label='MSFT'
-          component='a'
-          href='#basic-chip'
-          variant='outlined'
-          clickable
-          color='primary'
-        />
-        <Chip label='AMZN' />
-        <Chip label='GOOGL' />
-        <Chip label='META' />
+        {sandp500list.slice(0, 7).map((item) => {
+          return (
+            <Chip
+              label={item.id}
+              component='a'
+              href='stock/item.d'
+              variant='outlined'
+              clickable
+              color='primary'
+            />
+          );
+        })}
       </Box>
     </Box>
   );
