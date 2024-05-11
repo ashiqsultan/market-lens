@@ -8,7 +8,7 @@ import Stock from './page/Stock';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#00b386',
+      main: '#00A37A',
     },
     background: {
       default: '#ffffff',

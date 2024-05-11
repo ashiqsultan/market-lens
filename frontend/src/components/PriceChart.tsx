@@ -24,17 +24,17 @@ const options = {
     },
   },
 };
-const PriceChart = ({ priceRes }) => {
-  if (priceRes && Array.isArray(priceRes.results)) {
+const PriceChart = ({ priceResults }) => {
+  if (Array.isArray(priceResults)) {
     const data = {
-      labels: priceRes.results.map((i) => {
+      labels: priceResults.map((i) => {
         return new Date(i.t).toISOString().slice(0, 10);
       }),
       datasets: [
         {
           label: 'Price in Dollars',
-          data: priceRes.results.map((i) => i.vw),
-          borderColor: '#00b386',
+          data: priceResults.map((i) => i.vw),
+          borderColor: '#00A37A',
           borderWidth: 2,
           tension: 0.1,
           pointHoverRadius: 20,

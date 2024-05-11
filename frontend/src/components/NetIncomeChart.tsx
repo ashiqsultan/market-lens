@@ -40,8 +40,8 @@ const NetIncomeChart = ({ netIncomeData, revenueData }) => {
             {
               label: 'Revenue',
               data: revenueData.map((i) => roundToMillions(i.value)),
-              backgroundColor: '#00b386',
-              borderColor: '#00b386',
+              backgroundColor: '#00A37A',
+              borderColor: '#00A37A',
               borderWidth: 1,
               barThickness: 50,
             },
