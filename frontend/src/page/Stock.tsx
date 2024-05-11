@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Financial from '../components/Financial';
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Backdrop, CircularProgress } from '@mui/material';
 import PriceLayout from '../components/PriceLayout';
 import NewsList from '../components/NewsList';
 import MainSearch from '../components/MainSearch';
@@ -15,9 +15,11 @@ const StockDetails = () => {
   const [newsRes, setNewsRes] = useState([]);
   const [priceRes, setPriceRes] = useState([]);
   const [financialRes, setFinancialRes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getData = async (symbol) => {
+      setIsLoading(true);
       const data = await getStockData(symbol);
       if (data.news) {
         setNewsRes(data.news);
@@ -28,6 +30,7 @@ const StockDetails = () => {
       if (data.financial) {
         setFinancialRes(data.financial);
       }
+      setIsLoading(false);
     };
 
     getData(symbol);
@@ -39,6 +42,14 @@ const StockDetails = () => {
         <Typography variant='h5'>Money Lens</Typography>
         <MainSearch />
       </Box>
+
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={isLoading}
+      >
+        <CircularProgress color='primary' />
+      </Backdrop>
+
       <Box display={'flex'} columnGap={'3rem'} marginTop={'1rem'}>
         <Box>
           <PriceLayout
@@ -59,7 +70,6 @@ const StockDetails = () => {
           >
             News related to {symbol}
           </Typography>
-
           <NewsList newsRes={newsRes} />
         </Box>
       </Box>
