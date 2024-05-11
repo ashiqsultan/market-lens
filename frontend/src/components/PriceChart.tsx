@@ -48,6 +48,7 @@ const PriceChart = ({ priceResults }) => {
     ChartJS.register(LinearScale, CategoryScale, TimeScale);
     return (
       <div>
+        {/* @ts-ignore */}
         <Line data={data} options={options} />
       </div>
     );
