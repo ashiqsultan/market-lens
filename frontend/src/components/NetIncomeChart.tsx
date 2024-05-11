@@ -17,7 +17,7 @@ const roundToMillions = (value) => {
   return (value / 1000000).toFixed(2);
 };
 
-const NetIncomeChart = () => {
+const NetIncomeChart = ({ netIncomeData, revenueData }) => {
   ChartJS.register(
     LinearScale,
     CategoryScale,
@@ -29,41 +29,6 @@ const NetIncomeChart = () => {
     LineController,
     BarController
   );
-  const netIncomeData = [
-    {
-      value: 9.6995e10,
-      unit: 'USD',
-      label: 'Net Income/Loss',
-      order: 3200,
-    },
-    {
-      value: 9.9803e10,
-      unit: 'USD',
-      label: 'Net Income/Loss',
-      order: 3200,
-    },
-    { value: 9.468e10, unit: 'USD', label: 'Net Income/Loss', order: 3200 },
-  ];
-  const revenueData = [
-    {
-      value: 3.83285e11,
-      unit: 'USD',
-      label: 'Revenues',
-      order: 100,
-    },
-    {
-      value: 3.94328e11,
-      unit: 'USD',
-      label: 'Revenues',
-      order: 100,
-    },
-    {
-      value: 3.65817e11,
-      unit: 'USD',
-      label: 'Revenues',
-      order: 100,
-    },
-  ];
 
   return (
     <Box width={'60vw'} height={'400px'}>
