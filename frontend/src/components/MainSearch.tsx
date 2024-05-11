@@ -26,7 +26,7 @@ export default function MainSearch() {
     >
       {/* For Autocomplete search by company name I have included only S&P 500 stocks. To search for other companies directly enter the ticker symbol and hit enter */}
       <Autocomplete
-        onChange={(event: any, newValue: string | null) => {
+        onChange={(_event: any, newValue: any) => {
           console.log('newValue', newValue);
           if (newValue.id) {
             navigate(`/stock/${newValue.id}`);

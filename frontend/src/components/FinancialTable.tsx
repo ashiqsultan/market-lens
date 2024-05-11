@@ -25,25 +25,11 @@ const FinancialTable = ({ financialData }) => {
     Equity: 'balance_sheet.equity.value',
     'Current Assets': 'balance_sheet.current_assets.value',
     'Current Liabilities': 'balance_sheet.current_liabilities.value',
-    // 'Fixed Assets': 'balance_sheet.fixed_assets.value',
-    // 'Long-term Debt': 'balance_sheet.long_term_debt.value',
     Revenue: 'income_statement.revenues.value',
     'Operating Income/Loss': 'income_statement.operating_income_loss.value',
-    // 'Basic Earnings Per Share':
-    // 'income_statement.basic_earnings_per_share.value',
-    // 'Diluted Earnings Per Share':
-    //   'income_statement.diluted_earnings_per_share.value',
-
-    // 'Research and Development Expenses':
-    //   'income_statement.research_and_development.value',
-    // 'Cost of Revenue': 'income_statement.cost_of_revenue.value',
     'Operating Expenses': 'income_statement.operating_expenses.value',
     'Net Cash Flow':
       'cash_flow_statement.net_cash_flow_from_operating_activities.value',
-    // 'Net Cash Flow From Investing Activities':
-    //   'cash_flow_statement.net_cash_flow_from_investing_activities.value',
-    // 'Net Cash Flow From Financing Activities':
-    //   'cash_flow_statement.net_cash_flow_from_financing_activities.value',
     'Net Income/Loss': 'income_statement.net_income_loss.value',
     'Gross Profit': 'income_statement.gross_profit.value',
   };

@@ -17,7 +17,7 @@ const roundToMillions = (value) => {
   return (value / 1000000).toFixed(2);
 };
 
-const NetIncomeChart = ({ netIncomeData, revenueData }) => {
+const NetIncomeChart = ({ netIncomeData, revenueData, years }) => {
   ChartJS.register(
     LinearScale,
     CategoryScale,
@@ -35,7 +35,7 @@ const NetIncomeChart = ({ netIncomeData, revenueData }) => {
       <Chart
         type='bar'
         data={{
-          labels: ['2023', '2022', '2021'],
+          labels: years,
           datasets: [
             {
               label: 'Revenue',

@@ -9,6 +9,7 @@ const Financial = ({ financialRes }) => {
   } else if (Array.isArray(financialRes.results)) {
     const netIncomeData: any[] = [];
     const revenueData: any[] = [];
+    const years: any[] = [];
 
     financialRes.results.forEach((item) => {
       if (item.financials.income_statement.net_income_loss) {
@@ -16,6 +17,9 @@ const Financial = ({ financialRes }) => {
       }
       if (item.financials.income_statement.revenues) {
         revenueData.push(item.financials.income_statement.revenues);
+      }
+      if (item.fiscal_year) {
+        years.push(item.fiscal_year);
       }
     });
 
@@ -27,8 +31,12 @@ const Financial = ({ financialRes }) => {
         </Box>
         <Box marginBlock={'0.5rem'}>
           <NetIncomeChart
-            netIncomeData={netIncomeData}
-            revenueData={revenueData}
+            // @ts-ignore
+            netIncomeData={netIncomeData.toReversed()}
+            // @ts-ignore
+            revenueData={revenueData.toReversed()}
+            // @ts-ignore
+            years={years.toReversed()}
           />
         </Box>
         <Box marginTop={'2rem'}>
@@ -38,7 +46,7 @@ const Financial = ({ financialRes }) => {
           </Typography>
         </Box>
         <Box marginBlock={'0.5rem'}>
-          <FinancialTable financialData={financialRes.results} />
+          <FinancialTable financialData={financialRes.results.toReversed()} />
         </Box>
       </>
     );
