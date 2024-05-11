@@ -8,6 +8,7 @@ import MainSearch from '../components/MainSearch';
 import { useEffect } from 'react';
 import { getStockData } from '../api';
 import Logo from '../components/logo';
+import Paper from '@mui/material/Paper';
 
 const StockDetails = () => {
   const params = useParams();
@@ -39,30 +40,30 @@ const StockDetails = () => {
 
   return (
     <>
-      <Box display={'flex'} justifyContent={'space-between'}>
+      <Box
+        display={'flex'}
+        justifyContent={'flex-start'}
+        alignItems={'center'}
+        columnGap={'2rem'}
+        flexWrap={'wrap'}
+      >
         <Logo isSmall />
         <MainSearch />
       </Box>
-
-      <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={isLoading}
-      >
-        <CircularProgress color='primary' />
-      </Backdrop>
-
-      <Box display={'flex'} columnGap={'3rem'} marginTop={'1rem'}>
+      <Box display={'flex'} columnGap={'3rem'} marginTop={'2rem'} marginBottom={'8rem'}>
         <Box>
           <Box marginBottom={'1rem'}>
-            <PriceLayout
-              priceRes={priceRes}
-              financialRes={financialRes}
-              symbol={symbol}
-            />
+            <Paper elevation={2} sx={{ padding: '1.5rem' }}>
+              <PriceLayout
+                priceRes={priceRes}
+                financialRes={financialRes}
+                symbol={symbol}
+              />
+            </Paper>
           </Box>
-          <Typography variant='h5'>Revenue vs Net Income</Typography>
-          <Typography variant='caption'>(in millions USD)</Typography>
-          <Financial financialRes={financialRes} />
+          <Box paddingInline={'1.5rem'}>
+            <Financial financialRes={financialRes} />
+          </Box>
         </Box>
         <Box>
           <Typography
@@ -76,6 +77,13 @@ const StockDetails = () => {
           <NewsList newsRes={newsRes} />
         </Box>
       </Box>
+
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={isLoading}
+      >
+        <CircularProgress color='primary' />
+      </Backdrop>
     </>
   );
 };

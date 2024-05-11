@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import FinancialTable from './FinancialTable';
 import AlertLimit from './AlertLimit';
 import NetIncomeChart from './NetIncomeChart';
@@ -21,17 +21,25 @@ const Financial = ({ financialRes }) => {
 
     return (
       <>
-        <NetIncomeChart
-          netIncomeData={netIncomeData}
-          revenueData={revenueData}
-        />
-        <Typography variant='h5' gutterBottom>
-          Company Financial
-        </Typography>
-        <Typography variant='caption' gutterBottom>
-          All values in USD millions
-        </Typography>
-        <FinancialTable financialData={financialRes.results} />
+        <Box marginTop={'2rem'}>
+          <Typography variant='h5'>Revenue vs Net Income</Typography>
+          <Typography variant='caption'>(in millions USD)</Typography>
+        </Box>
+        <Box marginBlock={'0.5rem'}>
+          <NetIncomeChart
+            netIncomeData={netIncomeData}
+            revenueData={revenueData}
+          />
+        </Box>
+        <Box marginTop={'2rem'}>
+          <Typography variant='h5'>Company Financial</Typography>
+          <Typography variant='caption' gutterBottom>
+            All values in USD millions
+          </Typography>
+        </Box>
+        <Box marginBlock={'0.5rem'}>
+          <FinancialTable financialData={financialRes.results} />
+        </Box>
       </>
     );
   }
