@@ -1,7 +1,7 @@
 import { Typography, Box, Chip } from '@mui/material';
 import MainSearch from '../components/MainSearch';
 import sandp500list from '../components/sandp500list';
-
+import Logo from '../components/logo';
 const Home = () => {
   return (
     <Box
@@ -12,7 +12,7 @@ const Home = () => {
       flexDirection={'column'}
       rowGap={'1.5rem'}
     >
-      <Typography variant='h2'>Market Lens</Typography>
+      <Logo isSmall={false} />
       <Typography variant='h5'>Stock analysis tool for investors</Typography>
       <MainSearch />
       <Typography variant='body1'>
@@ -25,7 +25,7 @@ const Home = () => {
             <Chip
               label={item.id}
               component='a'
-              href='stock/item.d'
+              href={`stock/${item.id}`}
               variant='outlined'
               clickable
               color='primary'

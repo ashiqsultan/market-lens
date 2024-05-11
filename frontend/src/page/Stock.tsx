@@ -7,6 +7,7 @@ import NewsList from '../components/NewsList';
 import MainSearch from '../components/MainSearch';
 import { useEffect } from 'react';
 import { getStockData } from '../api';
+import Logo from '../components/logo';
 
 const StockDetails = () => {
   const params = useParams();
@@ -39,7 +40,7 @@ const StockDetails = () => {
   return (
     <>
       <Box display={'flex'} justifyContent={'space-between'}>
-        <Typography variant='h5'>Money Lens</Typography>
+        <Logo isSmall />
         <MainSearch />
       </Box>
 
@@ -52,11 +53,13 @@ const StockDetails = () => {
 
       <Box display={'flex'} columnGap={'3rem'} marginTop={'1rem'}>
         <Box>
-          <PriceLayout
-            priceRes={priceRes}
-            financialRes={financialRes}
-            symbol={symbol}
-          />
+          <Box marginBottom={'1rem'}>
+            <PriceLayout
+              priceRes={priceRes}
+              financialRes={financialRes}
+              symbol={symbol}
+            />
+          </Box>
           <Typography variant='h5'>Revenue vs Net Income</Typography>
           <Typography variant='caption'>(in millions USD)</Typography>
           <Financial financialRes={financialRes} />

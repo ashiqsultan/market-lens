@@ -50,7 +50,7 @@ const PriceLayout = ({ priceRes, financialRes, symbol }) => {
             lastClosePrice={closingPrice}
             date={date}
           />
-          <Box>
+          <Box paddingBlock={'1rem'}>
             <Chip
               label='Year'
               onClick={handleYearlyData}
