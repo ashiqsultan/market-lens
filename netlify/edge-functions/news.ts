@@ -10,6 +10,7 @@ export default async (_req: Request, context: Context) => {
     const resBody = polygonRes.data;
     const headers = {
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
       'Cache-Control': 'public, max-age=0, must-revalidate',
       'Netlify-CDN-Cache-Control': 'public, max-age=0, must-revalidate',
     };
@@ -23,6 +24,7 @@ export default async (_req: Request, context: Context) => {
     const resBody = polygonRes.data;
     const headers = {
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
       'Cache-Control': 'public, max-age=0, must-revalidate',
       'Netlify-CDN-Cache-Control':
         'public, max-age=120, stale-while-revalidate=300',
