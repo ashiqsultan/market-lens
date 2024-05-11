@@ -1,4 +1,6 @@
-import { Divider, Typography, Box } from '@mui/material';
+import { Divider, Typography, Box, Tooltip } from '@mui/material';
+import InfoIcon from '@mui/icons-material/Info';
+import IconButton from '@mui/material/IconButton';
 
 const BasicInfo = ({ name, lastClosePrice, date }) => {
   return (
@@ -11,7 +13,7 @@ const BasicInfo = ({ name, lastClosePrice, date }) => {
           marginBlock: '5px',
         }}
       />
-      <Box display={'flex'} alignItems={'center'} columnGap={'1rem'}>
+      <Box display={'flex'} alignItems={'center'} columnGap={'0.5rem'}>
         <Typography variant='h5' fontWeight={'500'} fontSize={'2rem'}>
           {'$ '}
           {lastClosePrice}
@@ -19,10 +21,12 @@ const BasicInfo = ({ name, lastClosePrice, date }) => {
         <Typography variant='body1' fontWeight={'400'} fontSize={'0.8rem'}>
           {date}
         </Typography>
+        <Tooltip title='Note: Price is not live'>
+          <IconButton size='small'>
+            <InfoIcon />
+          </IconButton>
+        </Tooltip>
       </Box>
-      <Typography variant='body1' fontWeight={'400'} fontSize={'0.8rem'}>
-        Note price is not live and delayed by a day.
-      </Typography>
     </>
   );
 };

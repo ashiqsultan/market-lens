@@ -39,8 +39,7 @@ const StockDetails = () => {
         <Typography variant='h5'>Money Lens</Typography>
         <MainSearch />
       </Box>
-      {/* <AboutStock /> */}
-      <Box display={'flex'} columnGap={'2rem'}>
+      <Box display={'flex'} columnGap={'3rem'} marginTop={'1rem'}>
         <Box>
           <PriceLayout
             priceRes={priceRes}
@@ -52,7 +51,15 @@ const StockDetails = () => {
           <Financial financialRes={financialRes} />
         </Box>
         <Box>
-          <Typography variant='h6'>News Related to {symbol}</Typography>
+          <Typography
+            variant='h6'
+            sx={{
+              marginBottom: '0.4rem',
+            }}
+          >
+            News related to {symbol}
+          </Typography>
+
           <NewsList newsRes={newsRes} />
         </Box>
       </Box>

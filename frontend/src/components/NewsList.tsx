@@ -13,16 +13,27 @@ const NewsCard = ({ article }) => {
   } = article;
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      {/* TODO Implement onclick redirect to news Article site */}
+    <Card
+      sx={{
+        maxWidth: 345,
+        marginBottom: '1rem',
+        '&:hover': {
+          cursor: 'pointer',
+        },
+      }}
+      onClick={() => {
+        window.open(article_url, '_blank');
+      }}
+    >
       <CardMedia component='img' height='140' image={image_url} alt={title} />
       <CardContent>
         <Typography gutterBottom variant='h5' component='div'>
           {title}
         </Typography>
         <Typography variant='body2' color='text.secondary'>
-          {/* TODO Limit desc character length */}
-          {description}
+          {description.length > 250
+            ? `${description.substring(0, 250)}...`
+            : description}
         </Typography>
         <Typography variant='body2' color='text.secondary'>
           Author: {author}
@@ -34,11 +45,6 @@ const NewsCard = ({ article }) => {
           Publisher:{' '}
           <Link href={publisher.homepage_url} target='_blank' rel='noopener'>
             {publisher.name}
-          </Link>
-        </Typography>
-        <Typography variant='body2' color='text.secondary'>
-          <Link href={article_url} target='_blank' rel='noopener'>
-            Read more
           </Link>
         </Typography>
       </CardContent>
