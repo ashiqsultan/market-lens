@@ -10,6 +10,7 @@ export const getNews = async (symbol: string) => {
     const response = await instance.get(`/api/news/${symbol}`);
     return response.data;
   } catch (error) {
+    // @ts-ignore
     if (error.response.status === 429) {
       return {
         status: 429,
@@ -28,6 +29,7 @@ export const getPrice = async (symbol: string) => {
     const response = await instance.get(`/api/price/${symbol}`);
     return response.data;
   } catch (error) {
+    // @ts-ignore
     if (error.response.status === 429) {
       return {
         status: 429,
@@ -46,6 +48,7 @@ export const getFinancial = async (symbol: string) => {
     const response = await instance.get(`/api/financial/?symbol=${symbol}`);
     return response.data;
   } catch (error) {
+    // @ts-ignore
     if (error.response.status === 429) {
       return {
         status: 429,

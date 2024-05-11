@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import AboutStock from '../components/AboutStock';
 import Financial from '../components/Financial';
-import NetIncomeChart from '../components/NetIncomeChart';
 import { Typography, Box } from '@mui/material';
 import PriceChart from '../components/PriceChart';
 import NewsList from '../components/NewsList';
