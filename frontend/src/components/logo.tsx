@@ -1,9 +1,12 @@
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, useTheme, useMediaQuery } from '@mui/material';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import { useNavigate } from 'react-router-dom';
 
 const Logo = ({ isSmall }) => {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isBelowMd = useMediaQuery(theme.breakpoints.down('md'));
+  const isMini = isSmall || isBelowMd;
   return (
     <Box
       display={'flex'}
@@ -18,16 +21,16 @@ const Logo = ({ isSmall }) => {
       }}
     >
       <Typography
-        variant={isSmall ? 'h4' : 'h2'}
+        variant={isMini ? 'h4' : 'h2'}
         fontWeight={700}
         color={'primary'}
       >
         Market
       </Typography>
-      <Typography variant={isSmall ? 'h4' : 'h2'} fontWeight={700} color={''}>
+      <Typography variant={isMini ? 'h4' : 'h2'} fontWeight={700} color={''}>
         Lens
       </Typography>
-      <ShowChartIcon fontSize={isSmall ? 'medium' : 'large'} />
+      <ShowChartIcon fontSize={isMini ? 'medium' : 'large'} />
     </Box>
   );
 };

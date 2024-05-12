@@ -31,7 +31,7 @@ const NetIncomeChart = ({ netIncomeData, revenueData, years }) => {
   );
 
   return (
-    <Box width={'60vw'} height={'400px'}>
+    <Box>
       <Chart
         type='bar'
         data={{

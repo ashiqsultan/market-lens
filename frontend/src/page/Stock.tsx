@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Financial from '../components/Financial';
-import { Typography, Box, Backdrop, CircularProgress } from '@mui/material';
+import {
+  Typography,
+  Box,
+  Backdrop,
+  CircularProgress,
+  useTheme,
+} from '@mui/material';
 import PriceLayout from '../components/PriceLayout';
 import NewsList from '../components/NewsList';
 import MainSearch from '../components/MainSearch';
@@ -18,6 +24,8 @@ const StockDetails = () => {
   const [priceRes, setPriceRes] = useState([]);
   const [financialRes, setFinancialRes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const theme = useTheme();
 
   useEffect(() => {
     const getData = async (symbol) => {
@@ -46,12 +54,33 @@ const StockDetails = () => {
         alignItems={'center'}
         columnGap={'2rem'}
         flexWrap={'wrap'}
+        sx={{
+          [theme.breakpoints.down('md')]: {
+            marginTop: '4px',
+            rowGap: '0.5rem',
+            justifyContent: 'center',
+          },
+        }}
       >
         <Logo isSmall />
         <MainSearch />
       </Box>
-      <Box display={'flex'} columnGap={'3rem'} marginTop={'2rem'} marginBottom={'8rem'}>
-        <Box>
+      <Box
+        display={'flex'}
+        columnGap={'3rem'}
+        marginTop={'2rem'}
+        marginBottom={'8rem'}
+        sx={{
+          [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+          },
+        }}
+      >
+        <Box
+          sx={{
+            flexGrow: 1,
+          }}
+        >
           <Box marginBottom={'1rem'}>
             <Paper elevation={2} sx={{ padding: '1.5rem' }}>
               <PriceLayout
@@ -65,7 +94,17 @@ const StockDetails = () => {
             <Financial financialRes={financialRes} />
           </Box>
         </Box>
-        <Box>
+        <Box
+          sx={{
+            flexGrow: 0,
+            [theme.breakpoints.down('md')]: {
+              marginTop: '1.5rem',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            },
+          }}
+        >
           <Typography
             variant='h6'
             sx={{

@@ -58,7 +58,7 @@ const NewsList = ({ newsRes }) => {
   } else if (Array.isArray(newsRes.results) && newsRes.results.length > 0) {
     return (
       <>
-        {newsRes.results.slice(0, 4).map((article, index) => (
+        {newsRes.results.map((article, index) => (
           <NewsCard key={index} article={article} />
         ))}
       </>

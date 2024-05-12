@@ -19,7 +19,13 @@ const Home = () => {
         Or select any of the popular stocks from below
       </Typography>
 
-      <Box display={'flex'} columnGap={'1rem'}>
+      <Box
+        display={'flex'}
+        columnGap={'1rem'}
+        flexWrap={'wrap'}
+        rowGap={'1rem'}
+        justifyContent={'center'}
+      >
         {sandp500list.slice(0, 7).map((item) => {
           return (
             <Chip
