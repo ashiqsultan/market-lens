@@ -34,6 +34,16 @@ const FinancialTable = ({ financialData }) => {
     'Gross Profit': 'income_statement.gross_profit.value',
   };
 
+  // @ts-ignore
+  const evalValue = (data, key) => {
+    try {
+      const val = eval(`data.financials.${financialKeys[key]}`);
+      return val;
+    } catch (error) {
+      console.error(error);
+      return 0;
+    }
+  };
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -49,12 +59,9 @@ const FinancialTable = ({ financialData }) => {
           {Object.keys(financialKeys).map((key, index) => (
             <TableRow key={index}>
               <TableCell>{key}</TableCell>
-              {/* @ts-ignore */}
               {financialData.map((data, dataIndex) => (
                 <TableCell key={dataIndex}>
-                  {roundToMillions(
-                    eval(`data.financials.${financialKeys[key]}`)
-                  )}
+                  {roundToMillions(evalValue(data, key))}
                 </TableCell>
               ))}
             </TableRow>
