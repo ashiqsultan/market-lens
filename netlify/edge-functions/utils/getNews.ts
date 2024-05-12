@@ -6,7 +6,7 @@ const POLYGON_API_KEY = Netlify.env.get('POLYGON_API_KEY');
 async function getNews(symbol: string): Promise<AppRes> {
   try {
     const polygonRes = await fetch(
-      `https://api.polygon.io/v2/reference/news?ticker=${symbol}&limit=10&apiKey=${POLYGON_API_KEY}`
+      `https://api.polygon.io/v2/reference/news?ticker=${symbol}&limit=4&apiKey=${POLYGON_API_KEY}`
     );
     const response = await handlePolygonAPIRes(polygonRes);
     return response;
